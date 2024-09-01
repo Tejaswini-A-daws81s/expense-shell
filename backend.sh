@@ -65,7 +65,8 @@ unzip /tmp/backend.zip &>>$LOG_FILE
 VALIDATE $? "Extracting backend code"
 
 npm install &>>$LOG_FILE
-cp /home/ec2-user/expense-shell /etc/systemd/system/backend.service
+VALIDATE $? "Installing npm"
+cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service
 
 dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "Installing MYSQL Client"
