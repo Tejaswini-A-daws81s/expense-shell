@@ -43,7 +43,7 @@ VLIDATE $? "Enabling nodejs:20"
 dnf install nodejs -y | tee -a $LOG_FILE
 VALIDATE $? "Installing nodejs"
 
-id expense
+id expense &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
   echo -e "Expense user doesnot exist...$G Creating user $N" | tee -a $LOG_FILE
@@ -82,9 +82,3 @@ VALIDATE $? "Enable backend service"
 
 systemctl restart backend &>>$LOG_FILE
 VALIDATE $? "Restart backend service"
-
-
-
-
-
-
