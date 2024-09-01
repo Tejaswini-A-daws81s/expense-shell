@@ -47,9 +47,9 @@ mysql -h mysql.devops81.online -u root -pExpenseApp@1 -e 'show databases;' &>>$L
 
 if [ $? -ne 0 ]
 then
-  echo "MYSQL root $R password is not set....Setting up now.. $N" | tee -a $LOG_FILE
+  echo -e "MYSQL root $R password is not set....Setting up now.. $N" | tee -a $LOG_FILE
   mysql_secure_installation --set-root-pass ExpenseApp@1
   VALIDATE $? "Setting up MYSQL Root Password"
 else
-  echo "MYSQL root $Y password is already setup nothing to do.... $N" | tee -a $LOG_FILE
+  echo -e "MYSQL root $Y password is already setup nothing to do.... $N" | tee -a $LOG_FILE
 fi
