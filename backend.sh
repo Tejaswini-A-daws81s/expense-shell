@@ -38,7 +38,7 @@ dnf module disable nodejs -y &>>$LOG_FILE
 VALIDATE $? "Disabling nodejs"
 
 dnf module enable nodejs:20 -y | tee -a $LOG_FILE
-VLIDATE $? "Enabling nodejs:20"
+VALIDATE $? "Enabling nodejs:20"
 
 dnf install nodejs -y | tee -a $LOG_FILE
 VALIDATE $? "Installing nodejs"
@@ -65,8 +65,6 @@ unzip /tmp/backend.zip &>>$LOG_FILE
 VALIDATE $? "Extracting backend code"
 
 npm install &>>$LOG_FILE
-VALIDATE $? "npm Installation"
-
 cp /home/ec2-user/expense-shell /etc/systemd/system/backend.service
 
 dnf install mysql -y &>>$LOG_FILE
